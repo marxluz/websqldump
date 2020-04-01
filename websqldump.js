@@ -125,6 +125,9 @@ wd.export = function(config) {
 };
 
 wd.open = function(config) {
+    
+    if(!!config.db) return confg.db;
+
 	if (!config) throw new Error('Please use a config object');
 	if (!config.database) throw new Error('Please define a config database name.');
 	return window.openDatabase(config.database, config.version || '1.0', config.info || '', config.dbsize || 512000);
